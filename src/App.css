@@ -1,0 +1,27 @@
+.appContainer {
+  width: 80%;
+  margin: auto;
+}
+
+.weatherCard {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.weatherDetailCard {
+  flex: 1 0;
+  text-align: center;
+  min-width: 8rem;
+  padding: .6rem;
+}
+
+.mainContainer {
+  display: flex;
+  flex-flow: column;
+}
+
+.topContainer {
+  flex: 1;
+  margin: auto;
+}
