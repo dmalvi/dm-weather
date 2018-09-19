@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Clear from './img/Clear.png';
 import Clouds from './img/Clouds.png';
 import Rain from './img/Rain.png';
+require('dotenv').config();
 
 class Weather extends Component {
 
@@ -15,8 +16,8 @@ class Weather extends Component {
 // Fetch data from API - Example
 fetchData = () => {
 // const apiUrl = `http://api.openweathermap.org/data/2.5/`;
-  const apiKey = '&appid=63345a796a78d44652be7962c77c7280';
-  const apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${this.state.city}`;
+  const apiKey = process.env.REACT_APP_APIKEY;
+  const apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${this.state.city}&appid=`;
 
   fetch(apiUrl+apiKey)
     .then(response => response.json())
@@ -31,10 +32,10 @@ this.fetchForecast();
 };
 
 fetchForecast = () => {
-  const apiKey = '&appid=63345a796a78d44652be7962c77c7280';
+  const apiKey = process.env.REACT_APP_APIKEY;
   //Prognos 5dgr url
-  //http://api.openweathermap.org/data/2.5/forecast?q=Stockholm&appid=63345a796a78d44652be7962c77c7280
-  const fiveDaysSthlm = `http://api.openweathermap.org/data/2.5/forecast?q=${this.state.city}`;
+  //http://api.openweathermap.org/data/2.5/forecast?q=Stockholm&appid={key_here}
+  const fiveDaysSthlm = `http://api.openweathermap.org/data/2.5/forecast?q=${this.state.city}&appid=`;
 
   fetch(fiveDaysSthlm+apiKey)
     .then(res => res.json())
