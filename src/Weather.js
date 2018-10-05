@@ -53,7 +53,7 @@ handleChange = (event) => {
 
 
   render() {
-    const {weatherData, city, forecastData, forecastList} = this.state;
+    const {city, forecastList} = this.state;
 
     const listForecast = forecastList.map((period,i) => {
     const classes=`weatherDetailCard ${period.weather[0].main.toLowerCase()}`;
@@ -64,14 +64,14 @@ handleChange = (event) => {
     <p>kl. {period.dt_txt.substring(11,16)} </p>
     <h2>{(period.main.temp-273.15).toFixed(1)} C</h2>
     <p>{period.wind.speed.toFixed(0)} m/s</p>
-    <img src={imgSrc}/>
+    <img src={imgSrc} alt='weathericon'/>
     </div>
   )});
 
     return (
       <div className="mainContainer">
         <div className="topContainer">
-        <input type="text" name="city" onChange={this.handleChange} value={city} autocomplete="off"/>
+        <input type="text" name="city" onChange={this.handleChange} value={city} autoComplete="off"/>
         <div><button onClick={this.fetchData}>PROGNOS</button>
         <button onClick={this.fetchForecast}>FORECAST</button>
         </div>

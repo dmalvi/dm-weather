@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import Weather from './Weather';
-
 class Header extends Component {
   render() {
     return (
